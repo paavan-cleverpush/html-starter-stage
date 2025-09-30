@@ -32,6 +32,9 @@
     <h1>Home Page</h1>
     <p>Welcome to our platform! Here, we bring you the best services and resources to enhance your experience.</p>
     <section>
+      <button id="testNullParams" class="btn btn-primary" style="margin: 5px;">
+        Test Null Parameters
+      </button>
       <h2>Latest News</h2>
       <p>Stay updated with the latest news from our industry. We regularly update this section with the most relevant
         and recent developments.</p>
@@ -75,6 +78,16 @@
   <script>
     CleverPush = window.CleverPush || [];
     CleverPush.push(['trackEvent', 'view_item_list']);
+    document.getElementById('testNullParams')?.addEventListener('click', function () {
+      console.log('Testing null/undefined parameter handling...');
+      CleverPush.push(['trackEvent', 'test404', {
+        ziel: 'Türkische Riviera',
+        testingURL: 'https://www.holidaycheck.de/urlaub/tuerkei/inspiration/test',
+        ZielUrl: null,  // ← This should NOT become "null" in URL
+        testingHeadline: "Breaking news from Turkey"
+      }]);
+      console.log('Event sent with null/undefined parameters');
+    });
   </script>
 </body>
 
