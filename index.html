@@ -67,17 +67,14 @@
   <script src="https://static.cleverpush.com/sdk/cleverpush.stage.js"></script>
   <script src="https://static.cleverpush.com/channel/loader/GBLTKej2jdk4zrnKP.js" async></script>
   <script>
+    CleverPush = window.CleverPush || [];
     CleverPush.init({
       channelId: 'GBLTKej2jdk4zrnKP', // replace with channel ID from cleverpush-app
       apiEndpoint: 'https://api-stage.cleverpush.com',
       loadIframe: false,
       autoRegister: true,
       showNotificationBell: true,
-    });  
-  </script>
-  <script>
-    CleverPush = window.CleverPush || [];
-    CleverPush.push(['trackEvent', 'view_item_list']);
+    });
     document.getElementById('testNullParams')?.addEventListener('click', function () {
       console.log('Testing null/undefined parameter handling...');
       CleverPush.push(['trackEvent', 'test404', {
