@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').then(() => {
+        console.log('Service Worker registered successfully.');
+      }).catch((error) => {
+        console.error('Service Worker registration failed:', error);
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1 class='title'>CleverPush</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="features.html">Features</a>
+  </nav>
+  <div class="container">
+    <h1>Home Page</h1>
+    <div class="cleverpush-survey" data-id="dWDo8sz7WsvydEZ7Z"></div>
+
+    <p>Welcome to our platform! Here, we bring you the best services and resources to enhance your experience.</p>
+    <section>
+      <button id="testNullParams" class="btn btn-primary" style="margin: 5px;">
+        Test Null Parameters
+      </button>
+      <h2>Latest News</h2>
+      <p>Stay updated with the latest news from our industry. We regularly update this section with the most relevant
+        and recent developments.</p>
+    </section>
+    <section>
+      <h2>Our Mission</h2>
+      <p>Our mission is to deliver quality services with a focus on innovation, reliability, and customer satisfaction.
+      </p>
+    </section>
+    <section>
+      <h2>Explore More</h2>
+      <p>Discover our services and products. Click on the links in the navigation bar to learn more.</p>
+    </section>
+  </div>
+  <div class="cleverpush-email-form" data-id="8riDbcSmF4WbZTCgb"></div>
+  <footer>
+    <p>© 2024 Your Website</p>
+  </footer>
+  <br />
+  <br />
+  <br />
+  <script src="https://static.cleverpush.com/channel/loader/GBLTKej2jdk4zrnKP.stage.js" async></script>
+  <script>window.cleverpushEmailConfig = { channelId: '4rSq37XiGFcYS7fS7', apiEndpoint: 'https://api-stage.cleverpush.com' };</script>
+  <script src="https://static.cleverpush.com/sdk/cleverpush-email.stage.js" async></script>
+  <script src="https://static.cleverpush.com/sdk/cleverpush.stage.js"></script>
+  <script src="https://static.cleverpush.com/sdk/cleverpush-survey.stage.js" async></script>
+  <script>
+    CleverPush = window.CleverPush || [];
+    CleverPush.init({
+      channelId: 'GBLTKej2jdk4zrnKP', // replace with channel ID from cleverpush-app
+      apiEndpoint: 'https://api-stage.cleverpush.com',
+      loadIframe: false,
+      autoRegister: true,
+      showNotificationBell: true,
+    });
+    document.getElementById('testNullParams')?.addEventListener('click', function () {
+      console.log('Testing null/undefined parameter handling...');
+      CleverPush.push(['trackEvent', 'test404', {
+        ziel: 'Türkische Riviera',
+        url: "https://www.holidaycheck.de/dh/hotels-tuerkische-riviera/759656ea-f8a5-3c67-aeb8-d37ecda767e1",
+        testingURL: 'https://www.holidaycheck.de/dh/hotels-tuerkische-riviera/759656ea-f8a5-3c67-aeb8-d37ecda767e1',
+        testingHeadline: "Breaking news from Turkey"
+      }]);
+      console.log('Event sent with null/undefined parameters');
+    });
+  </script>
+</body>
+
+</html>
